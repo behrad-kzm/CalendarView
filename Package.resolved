@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftMoment",
+        "repositoryURL": "https://github.com/akosma/SwiftMoment.git",
+        "state": {
+          "branch": "master",
+          "revision": "4cd4ee886328f9514c20f050b81d1725337ddd33",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
