@@ -23,16 +23,26 @@ class MonthView: UIView {
       setWeeks()
     }
   }
-
+  var disabledDays: [String] = [] {
+    didSet {
+      weeks.forEach { week in
+        week.days.forEach { day in
+          if disabledDays.contains(day.dateLabel.text) {
+            day.disable()
+          }
+        }
+      }
+    }
+  }
   var weeks: [WeekView] = []
   var weekLabels: [WeekLabel] = [
-    WeekLabel(day: "SUN"),
-    WeekLabel(day: "MON"),
-    WeekLabel(day: "TUE"),
-    WeekLabel(day: "WED"),
-    WeekLabel(day: "THU"),
-    WeekLabel(day: "FRI"),
-    WeekLabel(day: "SAT"),
+    WeekLabel(day: "S"),
+    WeekLabel(day: "M"),
+    WeekLabel(day: "T"),
+    WeekLabel(day: "W"),
+    WeekLabel(day: "T"),
+    WeekLabel(day: "F"),
+    WeekLabel(day: "S"),
   ]
 
   // these values are expensive to compute so cache them

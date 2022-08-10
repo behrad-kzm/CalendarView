@@ -44,6 +44,7 @@ class ContentView: UIScrollView {
     var currentDate = date.subtract(1, .Months)
     for _ in 1...numMonthsLoaded {
       let month = MonthView(frame: CGRect.zero)
+      month.disabledDays = ["4", "5"]
       month.date = currentDate
       addSubview(month)
       months.append(month)

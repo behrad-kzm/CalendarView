@@ -128,6 +128,10 @@ public class CalendarView: UIView {
     }
   }
 
+  public func setMonthDisableDays() {
+    contentView.dis
+  }
+  
   public func selectDate(date: Moment) {
     contentView.selectDate(date: date)
   }

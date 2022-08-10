@@ -27,6 +27,7 @@ class DayView: UIView {
     self.addSubview(label)
     return label
   }()
+  var disabled: Bool = false
   var isToday: Bool = false
   var isOtherMonth: Bool = false
   var selected: Bool = false {
@@ -72,7 +73,19 @@ class DayView: UIView {
     }
   }
 
+  func disable() {
+    dateLabel.textColor = CalendarView.otherMonthTextColor
+    dateLabel.backgroundColor = CalendarView.otherMonthBackgroundColor
+    disabled = false
+  }
+  
   func updateView() {
+    if self.disabled {
+      dateLabel.textColor = CalendarView.otherMonthTextColor
+      dateLabel.backgroundColor = CalendarView.otherMonthBackgroundColor
+      return
+    }
+    
     if self.selected {
       dateLabel.textColor = CalendarView.daySelectedTextColor
       dateLabel.backgroundColor = CalendarView.daySelectedBackgroundColor
@@ -89,6 +102,9 @@ class DayView: UIView {
   }
 
   @objc func selectIt() {
+    if self.disabled {
+      return
+    }
     selected = true
   }
 
